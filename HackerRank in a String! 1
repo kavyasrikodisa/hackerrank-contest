@@ -1,0 +1,7 @@
+s = input().strip()
+target = "hackerrank"
+i = 0
+for ch in s:
+    if i < len(target) and ch == target[i]:
+        i += 1
+print("YES" if i == len(target) else "NO")
