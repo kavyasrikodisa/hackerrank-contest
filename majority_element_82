@@ -1,0 +1,13 @@
+n=int(input())
+arr=input().split()
+def majorityElement(n,arr):
+    count=1
+    for i in range(n):
+        if arr[i] in arr[i+1:]:
+            count+=1
+
+    if(count>n/2):
+        print(arr[i])
+    else:
+        print(-1)
+majorityElement(n,arr)
