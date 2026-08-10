@@ -1,0 +1,12 @@
+A, B = map(int, input().split())
+mask = 0xFFFFFFFF
+
+while B != 0:
+    carry = (A & B) << 1
+    A = (A ^ B) & mask
+    B = carry & mask
+
+if A > 0x7FFFFFFF:
+    A = ~(A ^ mask)
+
+print(A)
