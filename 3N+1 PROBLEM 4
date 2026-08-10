@@ -1,0 +1,29 @@
+def cycle_length(n, memo):
+    original = n
+    count = 0
+    while n not in memo:
+        count += 1
+        if n % 2 == 0:
+            n //= 2
+        else:
+            n = 3 * n + 1
+    count += memo[n]
+    memo[original] = count
+    return count
+
+i, j = map(int, input().split())
+original_i = i
+original_j = j
+if i > j:
+    i, j = j, i
+memo = {1: 1}
+maximum = 0
+
+for n in range(i, j + 1):
+    length = cycle_length(n, memo)
+    if length > maximum:
+        maximum = length
+
+print(original_i, original_j, maximum)
+
+
