@@ -1,0 +1,21 @@
+n = int(input())
+arr = list(map(float, input().split()))
+buckets = [[] for _ in range(n)]
+for value in arr:
+    index = int(value * n)
+    if index >= n:
+        index = n - 1
+    buckets[index].append(value)
+for bucket in buckets:
+    bucket.sort()
+result = []
+for bucket in buckets:
+    result.extend(bucket)
+output = []
+for value in result:
+    if value.is_integer():
+        output.append(str(int(value)))
+    else:
+        output.append(f"{value:.2f}")
+
+print(" ".join(output))
